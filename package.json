@@ -1,0 +1,15 @@
+{
+  "name": "cubos-insanos",
+  "version": "1.0.0",
+  "description": "Os Cubos da Insanidade varridos: com seis faces de cada cor nenhum conjunto tem solucao unica, porque as solucoes vem sempre de tres em tres",
+  "type": "module",
+  "private": false,
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test testes/*.test.js",
+    "medir": "node ferramentas/medidor.js"
+  }
+}
