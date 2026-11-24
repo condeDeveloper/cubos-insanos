@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cubos da Insanidade — quatro cubos, quatro cores</title>
+<meta name="description" content="Os Cubos da Insanidade varridos: com seis faces de cada cor nenhum conjunto tem solucao unica, porque as solucoes vem sempre de tres em tres.">
+<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+<header>
+  <h1>Cubos da Insanidade</h1>
+  <p>Quatro cubos com as faces pintadas de quatro cores. Empilhe os quatro numa coluna de modo que cada lado da coluna (frente, direita, trás e esquerda) mostre as quatro cores, cada uma uma vez.</p>
+</header>
+
+<main>
+
+<section>
+  <h2>Monte a pilha</h2>
+  <div class="painel">
+    <div class="linha" style="margin-bottom:16px">
+      <select id="conjunto" aria-label="conjunto de cubos">
+        <option value="unica" selected>Com uma solução só</option>
+        <option value="tres">Seis faces de cada cor: três soluções</option>
+        <option value="impossivel">Seis faces de cada cor: impossível</option>
+      </select>
+      <button id="embaralhar" type="button">Embaralhar</button>
+      <button id="resolver" type="button">Mostrar uma solução</button>
+    </div>
+    <p class="fraco">Cada cubo gira em pé (↻), tomba para a frente (⤓) ou rola de lado (⇆). Os quadrados mostram, da esquerda para a direita, a frente, a direita, o fundo e a esquerda de cada cubo, e o de cima.</p>
+    <div id="pilha"></div>
+    <p id="estado"></p>
+  </div>
+</section>
+
+<section>
+  <h2>O que a varredura respondeu</h2>
+
+  <h3>Um cubo, para este jogo, é só três pares de faces opostas</h3>
+  <p>Na coluna, um par vira frente e fundo, outro vira esquerda e direita, e o terceiro fica em cima e embaixo, onde ninguém vê. E as 24 rotações do cubo realizam qualquer escolha: qual par vai para a frente, qual vai para o lado, e de que lado fica cada face. Com isso o jogo vira um problema de grafo, em que as cores são os vértices e cada par é uma aresta. O juiz do projeto não acredita nisso: ele gira cubos de verdade, nas 24 rotações, e conta as posições da pilha uma por uma. Os dois concordam em todos os <strong>30.856</strong> conjuntos de 3 cubos e nos <strong>341.055</strong> conjuntos de 4 cubos em que cada cubo tem as quatro cores.</p>
+
+  <h3>Com seis faces de cada cor, nunca há solução única</h3>
+  <p>Varrendo os <strong>476.919</strong> conjuntos de quatro cubos com seis faces de cada cor, 28,03% têm solução, e <strong>nenhum tem uma solução só</strong>: o número de soluções é sempre múltiplo de 3. O motivo cabe numa linha. Numa pilha resolvida, frente e fundo usam cada cor duas vezes, e os lados também. Sobram, em cima e embaixo, exatamente duas faces de cada cor, e então o par de cima também é uma escolha válida. Qualquer um dos três pares pode ficar escondido.</p>
+
+  <h3>Solução única pede cores desiguais</h3>
+  <p>Deixando cada cubo com as quatro cores, mas sem exigir seis faces de cada, 47,35% dos 341.055 conjuntos resolvem, e <strong>50.346</strong> têm solução única. O primeiro conjunto da lista acima é um deles: a cor vermelha aparece em nove faces.</p>
+</section>
+
+<section>
+  <h2>Como rodar</h2>
+  <p>Precisa de Node 20 ou mais novo. Sem dependência nenhuma.</p>
+  <pre><code>npm test          # a suíte inteira (uns minutos)
+npm run medir     # as tabelas rápidas</code></pre>
+  <p>O código está em <a href="https://github.com/condeDeveloper/cubos-insanos">github.com/condeDeveloper/cubos-insanos</a>.</p>
+</section>
+
+</main>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
